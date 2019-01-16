@@ -1,9 +1,9 @@
 const nodeExternals = require('webpack-node-externals');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 
 module.exports = {
-  mode: 'none',
+  mode: 'development',
   externals: [nodeExternals()],
   devtool: 'inline-cheap-module-source-map',
   output: {
@@ -12,14 +12,11 @@ module.exports = {
     devtoolModuleFilenameTemplate: '[absolute-resource-path]',
     devtoolFallbackModuleFilenameTemplate: '[absolute-resource-path]?[hash]',
   },
-  plugins: [
-    new VueLoaderPlugin()
-  ],
   module: {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader',
+        loader: ['vue-loader'],
       },
       {
         test: /\.js$/,
@@ -28,6 +25,29 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'vue-style-loader',
+          'css-loader'
+        ]
+      },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        },
+          {
+            loader: "css-loader" // translates CSS into CommonJS
+          },
+          {
+            loader: "sass-loader" // compiles Sass to CSS
+          }]
+      }
     ],
   },
+  plugins: [
+    new VueLoaderPlugin()
+  ],
 };
