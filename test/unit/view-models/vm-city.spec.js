@@ -1,6 +1,7 @@
 import {stub} from 'sinon';
 import WeatherAPI from '../../../api/WeatherAPI';
 import VMCity from '../../../view-models/vm-city';
+import City from '../../../models/City';
 
 const fixtures = {
   cityConstraints: {
@@ -55,11 +56,22 @@ const fixtures = {
   mismatchErrorMessage: 'Mismatch Information',
 };
 
+fixtures.formattedCityInformation =  {
+    id: fixtures.correctCityInformationResponse.id,
+    name: fixtures.correctCityInformationResponse.name,
+    country: fixtures.correctCityInformationResponse.sys.country,
+    temperature: fixtures.correctCityInformationResponse.main.temp,
+    humidity: fixtures.correctCityInformationResponse.main.humidity,
+    pressure: fixtures.correctCityInformationResponse.main.pressure,
+};
+fixtures.cityModel = new City(fixtures.formattedCityInformation);
+
+
 describe('Unit tests for View Model City', () => {
-  it('Test if method getCityWeatherInformation calls WeatherAPI correct', async () => {
+  it('Test if method getCityWithWeatherInformation calls WeatherAPI correct', async () => {
     const stubWeatherAPI = stub(WeatherAPI, 'getWeatherInfoByCityId').resolves(true);
     try {
-      await VMCity.getCityWeatherInformation(fixtures.cityConstraints);
+      await VMCity.getCityWithWeatherInformation(fixtures.cityConstraints);
     } catch (e) {
       // nothing to do in this case
     } finally {
@@ -90,9 +102,24 @@ describe('Unit tests for View Model City', () => {
       expect(e.message).to.equal(fixtures.mismatchErrorMessage)
     }
   });
-  it('Test if method getCityWeatherInformation throw an error when API return mismatch city information', () => {
-    stub(WeatherAPI, 'getWeatherInfoByCityId').resolves(fixtures.mismatchCityInformationResponse);
-    expect(VMCity.getCityWeatherInformation(fixtures.cityConstraints)).to.be.rejectedWith(fixtures.mismatchErrorMessage);
+  it('Test if method getCityWithWeatherInformation returns a City instance when API returns correct city information', async () => {
+    stub(WeatherAPI, 'getWeatherInfoByCityId').resolves(fixtures.correctCityInformationResponse);
+    const city = await VMCity.getCityWithWeatherInformation(fixtures.cityConstraints);
+    expect(city).to.be.an.instanceOf(City);
+    expect(city).to.eql(fixtures.cityModel);
     WeatherAPI.getWeatherInfoByCityId.restore();
+  });
+  it('Test if method getCityWithWeatherInformation throw an error when API return mismatch city information', () => {
+    stub(WeatherAPI, 'getWeatherInfoByCityId').resolves(fixtures.mismatchCityInformationResponse);
+    expect(VMCity.getCityWithWeatherInformation(fixtures.cityConstraints)).to.be.rejectedWith(fixtures.mismatchErrorMessage);
+    WeatherAPI.getWeatherInfoByCityId.restore();
+  });
+  it('Test if method formatInformation is returning expected value', () => {
+    expect(VMCity.formatInformation(fixtures.correctCityInformationResponse)).to.eql(fixtures.formattedCityInformation);
+  });
+  it('Test if method buildCityModel is returning expected instance of City', () => {
+    const city = VMCity.buildCityModel(fixtures.formattedCityInformation);
+    expect(city).to.be.an.instanceOf(City);
+    expect(city).to.eql(fixtures.cityModel);
   });
 });
