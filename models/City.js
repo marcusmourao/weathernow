@@ -1,3 +1,5 @@
+import DateHelper from "../helpers/date";
+
 class City {
   constructor({id, name, country, temperature, humidity, pressure}) {
     this._id = id;
@@ -6,6 +8,7 @@ class City {
     this._temperature = temperature; // Celsius
     this._humidity = humidity; // Percentage
     this._pressure = pressure; // hectoPascal
+    this._updateAt = DateHelper.getCurrentISODateString();
   }
 
   get id() {
@@ -54,6 +57,14 @@ class City {
 
   set pressure(value) {
     this._pressure = value;
+  }
+
+  get updateAt() {
+    return this._updateAt;
+  }
+
+  set updateAt(value) {
+    this._updateAt = value;
   }
 }
 
