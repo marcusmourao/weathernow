@@ -16,6 +16,7 @@ describe('Unit tests for Weather Now API', () => {
     const expectedArg = fixtures.getWeatherByCityId.finalEndPoint;
     WeatherAPI.getWeatherInfoByCityId(cityId);
     expect(stubAxiosGet.calledOnce).to.equal(true);
-    expect(stubAxiosGet.getCall(0).args[0]).to.equal(expectedArg)
+    expect(stubAxiosGet.getCall(0).args[0]).to.equal(expectedArg);
+    axios.get.restore();
   });
 });

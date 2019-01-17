@@ -5,7 +5,7 @@ const fixtures = {
 };
 
 fixtures.getWeatherByCityId = {
-  finalEndPoint: `${fixtures.serverHost}?id=${fixtures.cityId}&appid=${fixtures.apiKey}`
+  finalEndPoint: `${fixtures.serverHost}?id=${fixtures.cityId}&units=metric&appid=${fixtures.apiKey}`
 };
 
 export default fixtures;
