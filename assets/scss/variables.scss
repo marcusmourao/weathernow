@@ -1,7 +1,7 @@
 $app-background-color: #f1f1f1;
 $card-footer-background: transparentize($app-background-color, 0.5);
 $divider-color: #ebebeb;
-$box-shadow-color: transparentize(#333333, 0.1);
+$box-shadow-color: transparentize(#333333, 0.9);
 
 $primary-color: #69a3ff;
 $secondary-color: #ff9632;
@@ -9,3 +9,5 @@ $tertiary-color: #ed1946;
 
 $helper-color-light: #b4b4b4;
 $helper-color-dark: #737c84;
+
+$standard-font: Helvetica, Arial, sans-serif;
