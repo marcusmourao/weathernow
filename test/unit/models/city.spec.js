@@ -1,24 +1,15 @@
-import {stub} from 'sinon';
 import City from '../../../models/City';
-import DateHelper from '../../../helpers/date';
 import viewModelFixtures from '../../fixtures/view-model/vm-cities';
 
 const fixtures = {
   ...viewModelFixtures,
 };
 
-stub(DateHelper, 'getCurrentISODateString').returns(fixtures.currentISODateString);
-
-fixtures.cityModel = new City(fixtures.formattedCityInformation);
-
 describe('Unit tests for City model', () => {
-  after(() => {
-    DateHelper.getCurrentISODateString.restore();
-  });
+  fixtures.cityModel = new City(fixtures.formattedCityInformation);
   it('Test if constructor generates an instance of City', () => {
     const city = new City(fixtures.formattedCityInformation);
     expect(city).to.be.an.instanceOf(City);
-    expect(city).to.eql(fixtures.cityModel);
   });
   describe('Unit tests for all properties getters/setters from model', () => {
     const parameters = {

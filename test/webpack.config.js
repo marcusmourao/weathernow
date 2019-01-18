@@ -3,7 +3,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 
 module.exports = {
-  mode: 'development',
+  mode: 'none',
   externals: [nodeExternals()],
   devtool: 'inline-cheap-module-source-map',
   output: {

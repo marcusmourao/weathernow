@@ -11,7 +11,7 @@ describe('Unit tests for Weather Now API', () => {
     expect(WeatherAPI.getWeatherServerHost()).to.equal(fixtures.serverHost);
   });
   it('Test if function getWeatherInfo calls axios with correct parameter', () => {
-    const stubAxiosGet = stub(axios, 'get');
+    const stubAxiosGet = stub(axios, 'get').resolves({data: {}});
     const cityId = fixtures.cityId;
     const expectedArg = fixtures.getWeatherByCityId.finalEndPoint;
     WeatherAPI.getWeatherInfoByCityId(cityId);

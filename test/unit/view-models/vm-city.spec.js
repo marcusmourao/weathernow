@@ -2,23 +2,14 @@ import {stub} from 'sinon';
 import WeatherAPI from '../../../api/WeatherAPI';
 import VMCity from '../../../view-models/vm-city';
 import City from '../../../models/City';
-import DateHelper from "../../../helpers/date";
 import viewModelFixtures from '../../fixtures/view-model/vm-cities';
 
 const fixtures = {
   ...viewModelFixtures,
 };
 
-
-stub(DateHelper, 'getCurrentISODateString').returns(fixtures.currentISODateString);
-
-fixtures.cityModel = new City(fixtures.formattedCityInformation);
-
-
 describe('Unit tests for View Model City', () => {
-  after(() => {
-    DateHelper.getCurrentISODateString.restore();
-  });
+  fixtures.cityModel = new City(fixtures.formattedCityInformation);
   it('Test if method getCityWithWeatherInformation calls WeatherAPI correct', async () => {
     const stubWeatherAPI = stub(WeatherAPI, 'getWeatherInfoByCityId').resolves(true);
     try {

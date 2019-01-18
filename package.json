@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "cross-env": "^5.2.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {

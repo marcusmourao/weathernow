@@ -23,7 +23,7 @@ const fixtures = {
     id: 3421319,
     name: 'Nuuk',
   },
-  currentISODateString: new Date().toISOString(),
+  currentISODateString: '2019-01-18T00:13:35.393Z',
   mismatchCityId: {
     id: 123,
   },
