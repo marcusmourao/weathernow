@@ -1,5 +1,5 @@
-import WeatherAPI from "../api/WeatherAPI";
-import City from "../models/City";
+import WeatherAPI from '../api/WeatherAPI';
+import City from '../models/City';
 
 
 function validateCityInformation(cityConstraints, cityInformation) {

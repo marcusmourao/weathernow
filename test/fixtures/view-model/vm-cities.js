@@ -5,20 +5,20 @@ const fixtures = {
     cityCountry: 'GL',
   },
   correctCityInformationResponse:  {
-    "main":{
-      "temp":290.886,
-      "pressure":888.92,
-      "humidity":98,
-      "temp_min":290.886,
-      "temp_max":290.886,
-      "sea_level":1027.68,
-      "grnd_level":888.92
+    'main':{
+      'temp':290.886,
+      'pressure':888.92,
+      'humidity':98,
+      'temp_min':290.886,
+      'temp_max':290.886,
+      'sea_level':1027.68,
+      'grnd_level':888.92
     },
-    "sys":{
-      "message":0.0024,
-      "country":"GL",
-      "sunrise":1547714274,
-      "sunset":1547763531
+    'sys':{
+      'message':0.0024,
+      'country':'GL',
+      'sunrise':1547714274,
+      'sunset':1547763531
     },
     id: 3421319,
     name: 'Nuuk',
@@ -31,23 +31,23 @@ const fixtures = {
     name: 'Wrong name'
   },
   mismatchCityInformationResponse: {
-    "main":{
-      "temp":290.886,
-      "pressure":888.92,
-      "humidity":98,
-      "temp_min":290.886,
-      "temp_max":290.886,
-      "sea_level":1027.68,
-      "grnd_level":888.92
+    'main':{
+      'temp':290.886,
+      'pressure':888.92,
+      'humidity':98,
+      'temp_min':290.886,
+      'temp_max':290.886,
+      'sea_level':1027.68,
+      'grnd_level':888.92
     },
-    "sys":{
-      "message":0.0024,
-      "country":"BR",
-      "sunrise":1547714274,
-      "sunset":1547763531
+    'sys':{
+      'message':0.0024,
+      'country':'BR',
+      'sunrise':1547714274,
+      'sunset':1547763531
     },
-    "id":3445709,
-    "name":"Urubici",
+    'id':3445709,
+    'name':'Urubici',
   },
   mismatchErrorMessage: 'Mismatch Information',
 };

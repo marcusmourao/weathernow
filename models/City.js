@@ -1,4 +1,4 @@
-import DateHelper from "../helpers/date";
+import DateHelper from '../helpers/date';
 
 class City {
   constructor({id, name, country, temperature, humidity, pressure}) {
