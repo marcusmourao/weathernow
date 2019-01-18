@@ -26,6 +26,9 @@ export default {
     -webkit-box-shadow: 0 1px 10px $box-shadow-color;
     -moz-box-shadow: 0 1px 10px $box-shadow-color;
     box-shadow: 0 1px 10px $box-shadow-color;
+    width: 100%;
+    position: fixed;
+    background-color: $elementary-color-light;
   }
 
   img {

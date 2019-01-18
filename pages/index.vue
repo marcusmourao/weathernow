@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <nav-bar/>
+    <weather-list/>
   </div>
 </template>
 
@@ -8,9 +9,10 @@
 import VMWeather from '../view-models/vm-city';
 import supportedCities from '../config/supported-cities';
 import NavBar from '../components/nav-bar/nav-bar';
+import WeatherList from '../components/weather-list/weather-list.vue';
 
 export default {
-  components: {NavBar},
+  components: {WeatherList, NavBar},
   async mounted() {
     const info =  await  VMWeather.getCityWithWeatherInformation(supportedCities[0]);
     const info2 = await  VMWeather.getCityWithWeatherInformation(supportedCities[1]);
@@ -21,5 +23,10 @@ export default {
 </script>
 
 <style>
-
+  .container {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 </style>
