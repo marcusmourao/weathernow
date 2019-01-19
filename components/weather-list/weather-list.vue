@@ -28,6 +28,7 @@ export default {
   .weather-list__container {
     background-color: $app-background-color;
     display: flex;
+    flex-wrap: wrap;
     flex-grow: 1;
     justify-content: center;
     align-items: center;
