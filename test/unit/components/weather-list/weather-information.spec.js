@@ -102,6 +102,8 @@ describe('Unit tests for Weather Information Component', () => {
           }
         });
         expect(wrapperForTemperatureTests.vm.temperatureStyle).to.equal(testConstraint.expectedValue);
+        const temperature = wrapperForTemperatureTests.find('span.weather__temperature');
+        expect(temperature.classes()).to.contain(testConstraint.expectedValue);
       });
     });
   });
