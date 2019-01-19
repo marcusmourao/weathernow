@@ -32,6 +32,11 @@ export default {
     flex-grow: 1;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 50px 20px 20px 20px;
+  }
+  @media only screen and (max-width: 600px) {
+    .weather-list__container {
+      flex-direction: column;
+    }
   }
 </style>
