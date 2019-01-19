@@ -1,2 +1,0 @@
-describe('Unit test test', () => {
-});
