@@ -7,3 +7,7 @@ chai.use(chaiAsPromised);
 require('jsdom-global')();
 
 global.expect = chai.expect;
+global.localStorage = {
+  getItem: () => {},
+  setItem: () => {},
+};
