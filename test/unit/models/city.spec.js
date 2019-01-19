@@ -1,3 +1,4 @@
+import moment from 'moment';
 import City from '../../../models/City';
 import viewModelFixtures from '../../fixtures/view-model/vm-cities';
 
@@ -14,7 +15,7 @@ describe('Unit tests for City model', () => {
   describe('Unit tests for all properties getters/setters from model', () => {
     const parameters = {
       ...fixtures.formattedCityInformation,
-      updateAt: fixtures.currentISODateString,
+      updatedAt: fixtures.currentISODateString,
     };
     const city = new City(fixtures.formattedCityInformation);
     const properties = Object.keys(parameters);
@@ -25,6 +26,9 @@ describe('Unit tests for City model', () => {
         city[property] = patchParameter;
         expect(city[property]).to.equal(patchParameter);
       });
+    });
+    it('Test if updatedAtToString is returning expected value', () => {
+      expect(city.updatedAtToString).to.equal(moment(city.updatedAt).format('h:mm:ss a'))
     });
   });
 });

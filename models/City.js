@@ -1,3 +1,4 @@
+import moment from 'moment';
 import DateHelper from '../helpers/date';
 
 class City {
@@ -8,7 +9,7 @@ class City {
     this._temperature = temperature; // Celsius
     this._humidity = humidity; // Percentage
     this._pressure = pressure; // hectoPascal
-    this._updateAt = DateHelper.getCurrentISODateString();
+    this._updatedAt = DateHelper.getCurrentISODateString();
   }
 
   get id() {
@@ -59,12 +60,16 @@ class City {
     this._pressure = value;
   }
 
-  get updateAt() {
-    return this._updateAt;
+  get updatedAt() {
+    return this._updatedAt;
   }
 
-  set updateAt(value) {
-    this._updateAt = value;
+  get updatedAtToString() {
+    return moment(this._updatedAt).format('h:mm:ss a');
+  }
+
+  set updatedAt(value) {
+    this._updatedAt = value;
   }
 }
 
