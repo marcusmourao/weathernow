@@ -14,7 +14,7 @@ function buildStore(cityId) {
           activeCityId: cityId,
         },
         mutations: {
-          setActiveCityId: () => {},
+          'weather/setActiveCityId': () => {},
         }
       }
     }
