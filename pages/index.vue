@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import NavBar from '../components/nav-bar/nav-bar';
+import NavBar from '../components/nav-bar/nav-bar.vue';
 import WeatherList from '../components/weather-list/weather-list.vue';
 
 export default {
