@@ -5,18 +5,31 @@
 ## Build Setup
 
 ``` bash
-# install dependencies
-$ yarn install
+# Versão mínima do Node:8
+# Primeiramente instale todas as dependências do projeto
+$ npm install
 
-# serve with hot reload at localhost:3000
-$ yarn run dev
+# Para rodar os testes locais
+$ npm run test
 
-# build for production and launch server
-$ yarn run build
-$ yarn start
+# Para subir o ambiente em modo de desenvolvimento (a porta 3000 deve estar disponível)
+$ npm run dev
 
-# generate static project
-$ yarn run generate
+# O ambiente estará rodando em http://localhost:3000
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Build Production
+
+``` bash
+# Versão mínima do Node: 8
+# Primeiramente instale todas as dependências do projeto
+$ npm install --only=production
+
+# Build o projeto
+$ npm run build
+
+# Start o projeto
+$ npm run start
+
+# O ambiente estará rodando em http://localhost:3000
+```
