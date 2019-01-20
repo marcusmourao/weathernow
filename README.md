@@ -33,3 +33,13 @@ $ npm run start
 
 # O ambiente estará rodando em http://localhost:3000
 ```
+
+## Usuários Docker - Production
+``` bash
+# Realize o build da imagem
+$ docker build -t weather-now .
+
+# Rode a imagem localmente
+$ docker run -d --restart=always -p 3000:3000 weather-now
+# O ambiente estará rodando em http://localhost:3000
+```
