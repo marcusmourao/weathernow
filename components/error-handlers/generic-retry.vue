@@ -20,7 +20,6 @@ export default {
   },
   methods: {
     retry() {
-      console.log('entrei aqui');
       this.$emit('retry');
     }
   }
