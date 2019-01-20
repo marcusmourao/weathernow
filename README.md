@@ -43,3 +43,8 @@ $ docker build -t weather-now .
 $ docker run -d --restart=always -p 3000:3000 weather-now
 # O ambiente estará rodando em http://localhost:3000
 ```
+
+## Ambiente Online
+```bash
+# Acesse http://165.227.252.136:3010/
+```
